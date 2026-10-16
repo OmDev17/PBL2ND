@@ -1,0 +1,4 @@
+Title: Sorting of Array
+Code: Insertion Sort
+Tree: Outer loop → Inner loop/while loop
+Time complexity: O(n²)
