@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeLens - Complexity Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>CodeLens: Universal Complexity Analyzer</h2>
+    <p class="sub">PBL Project - Time Complexity & Storage Manager</p>
+
+    <!-- Top Menu Buttons -->
+    <div class="menu-bar">
+      <button class="menu-btn active" onclick="openTab('tab-analyze')">1. Analyze Code</button>
+      <button class="menu-btn" onclick="openTab('tab-summary')">2. Saved Summary</button>
+      <button class="menu-btn" onclick="openTab('tab-compare')">3. Compare</button>
+      <button class="menu-btn" onclick="openTab('tab-inspect')">4 & 5. View Solutions</button>
+      <button class="menu-btn" onclick="openTab('tab-demos')">6. Demo Suite</button>
+    </div>
+
+    <!-- 1. Analyze Code -->
+    <div id="tab-analyze" class="section active">
+      <h3>1. Analyze & Save New Code Snippet</h3>
+      <div class="form-group">
+        <label>Project Name:</label>
+        <input type="text" id="project-name" placeholder="Enter project name (e.g. BubbleSort)">
+      </div>
+
+      <div class="form-group">
+        <label>Code Snippet (C++ or Python):</label>
+        <textarea id="code-input" rows="10" placeholder="Paste your code here..."></textarea>
+      </div>
+
+      <button class="btn" id="btn-analyze" onclick="analyzeCode()">Analyze & Save</button>
+
+      <!-- Results Box -->
+      <div id="analyze-output" class="result-box" style="display: none;">
+        <h4>Analysis Result</h4>
+        <table class="simple-table">
+          <tr><th>Big-O Complexity</th><td><strong id="out-bigo">-</strong></td></tr>
+          <tr><th>Priority Rank</th><td id="out-rank">-</td></tr>
+          <tr><th>Loop Count</th><td id="out-loops">-</td></tr>
+          <tr><th>Max Loop Depth</th><td id="out-depth">-</td></tr>
+          <tr><th>Direct Recursion</th><td id="out-direct">-</td></tr>
+          <tr><th>Indirect Recursion</th><td id="out-indirect">-</td></tr>
+          <tr><th>Recursion Type</th><td id="out-rectype">-</td></tr>
+        </table>
+        <p id="out-saved" class="saved-msg" style="display:none;">Saved to submissions.txt</p>
+      </div>
+    </div>
+
+    <!-- 2. Summary -->
+    <div id="tab-summary" class="section">
+      <h3>2. View All Saved Projects & Submissions</h3>
+      <button class="btn btn-small" onclick="loadSummary()">Refresh Table</button>
+      <br><br>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Submissions</th>
+            <th>Last Big-O</th>
+            <th>Optimal Big-O</th>
+            <th>Source Code</th>
+          </tr>
+        </thead>
+        <tbody id="summary-rows">
+          <tr><td colspan="5">Loading...</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Embedded Source Code Viewer inside Summary Tab -->
+      <div id="summary-code-box" class="result-box" style="display:none; margin-top:20px;">
+        <h4 id="summary-code-title">Source Code</h4>
+        <p id="summary-code-meta" style="color:#666; font-size:13px;"></p>
+        <pre><code id="summary-code-content"></code></pre>
+      </div>
+    </div>
+
+    <!-- 3. Compare -->
+    <div id="tab-compare" class="section">
+      <h3>3. Compare Two Saved Projects</h3>
+      <div class="row">
+        <div>
+          <label>Project 1:</label><br>
+          <select id="cmp-p1"></select>
+        </div>
+        <div>
+          <label>Project 2:</label><br>
+          <select id="cmp-p2"></select>
+        </div>
+      </div>
+      <br>
+      <button class="btn" onclick="compareProjects()">Compare</button>
+
+      <div id="compare-box" class="result-box" style="display:none; margin-top:15px;">
+        <h4>Comparison Verdict</h4>
+        <p id="cmp-details"></p>
+        <p><strong id="cmp-winner"></strong></p>
+      </div>
+    </div>
+
+    <!-- 4 & 5. Inspect Solutions -->
+    <div id="tab-inspect" class="section">
+      <h3>4 & 5. View Last or Most Optimal Solution</h3>
+      <div class="row">
+        <div>
+          <label>Select Project:</label><br>
+          <select id="insp-project"></select>
+        </div>
+        <div>
+          <label>View Mode:</label><br>
+          <select id="insp-mode">
+            <option value="last">Last Submitted Solution (Option 4)</option>
+            <option value="optimal">Most Optimal Solution (Option 5)</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <button class="btn" onclick="fetchSolution()">View Solution</button>
+
+      <div id="inspect-box" class="result-box" style="display:none; margin-top:15px;">
+        <h4>Solution Details</h4>
+        <p><strong>Timestamp:</strong> <span id="insp-time"></span> | <strong>Big-O:</strong> <span id="insp-bigo"></span> | <strong>Rank:</strong> <span id="insp-rank"></span></p>
+        <p><strong>Source Code:</strong></p>
+        <pre><code id="insp-code"></code></pre>
+      </div>
+    </div>
+
+    <!-- 6. Demo Suite -->
+    <div id="tab-demos" class="section">
+      <h3>6. Run Built-in Demo Test Suite</h3>
+      <p>Click any demo to analyze and save into <code>submissions.txt</code>:</p>
+      <div class="demo-buttons">
+        <button class="btn btn-small" onclick="runDemo(1)">Demo 1: Python Nested (O(n²))</button>
+        <button class="btn btn-small" onclick="runDemo(2)">Demo 2: C++ Logarithmic (O(log n))</button>
+        <button class="btn btn-small" onclick="runDemo(3)">Demo 3: Fibonacci (O(2ⁿ))</button>
+        <button class="btn btn-small" onclick="runDemo(4)">Demo 4: Indirect Recursion (O(n))</button>
+      </div>
+
+      <div id="demo-box" class="result-box" style="display:none; margin-top:15px;">
+        <h4>Demo Result: <span id="demo-title"></span></h4>
+        <p><strong>Calculated Big-O:</strong> <strong id="demo-bigo"></strong> | <strong>Rank:</strong> <span id="demo-rank"></span></p>
+        <pre><code id="demo-code"></code></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
