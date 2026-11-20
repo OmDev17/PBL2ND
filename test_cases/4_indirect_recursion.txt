@@ -1,0 +1,11 @@
+function funcA(n)
+    if n > 0
+        funcB(n - 1)
+    end
+end
+
+function funcB(n)
+    if n > 0
+        funcA(n - 1)
+    end
+end
