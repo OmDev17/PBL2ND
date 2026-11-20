@@ -1,0 +1,58 @@
+SortingAlgo|2026-11-12 12:00:00|O(n^2)|5|2|None|void bubbleSort(int arr[], int n) {\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n - 1; j++) {\n            if (arr[j] > arr[j + 1]) { int t = arr[j]; arr[j] = arr[j+1]; arr[j+1] = t; }\n        }\n    }\n}
+SortingAlgo|2026-11-12 12:00:00|O(n log n)|4|2|None|void mergeLike(int arr[], int n) {\n    for (int i = 0; i < n; i++) {\n        int j = n;\n        while (j > 1) { j /= 2; }\n        arr[i] = j;\n    }\n}
+FactorialRec|2026-11-12 12:00:00|O(n)|3|0|Direct (Linear)|int factorial(int n) {\n    if (n <= 1) return 1;\n    return n * factorial(n - 1);\n}
+FibonacciRec|2026-11-12 12:00:00|O(2^n)|8|0|Multiple-branch (Exponential)|int fibonacci(int n) {\n    if (n <= 1) return n;\n    return fibonacci(n - 1) + fibonacci(n - 2);\n}
+Demo_PythonNested|2026-11-12 22:45:20|O(n^2)|5|2|None|def print_pairs(n):\n    for i in range(n):\n        for j in range(n):\n            print(i, j)\n
+Demo_CppLog|2026-11-12 22:45:20|O(log n)|2|1|None|#include <iostream>\n\nint binaryLikeSteps(int n) {\n    int count = 0;\n    int i = 1;\n    while (i < n) {\n        i *= 2;\n        count++;\n    }\n    return count;\n}\n
+Demo_Fibonacci|2026-11-12 22:45:20|O(2^n)|8|0|Multiple-branch (Exponential)|int fib(int n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}\n
+Demo_Indirect|2026-11-12 22:45:20|O(n)|3|0|Indirect (Linear)|function funcA(n)\n    if n > 0\n        funcB(n - 1)\n    end\nend\n\nfunction funcB(n)\n    if n > 0\n        funcA(n - 1)\n    end\nend\n
+myquicksort|2026-11-14 01:50:05|O(log n)|2|2|None|void sort(int arr[], int n) {\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            cout << arr[i];\n        }\n    }\n}\n
+Demo_PythonNested|2026-11-14 01:55:20|O(n^2)|5|2|None|def print_pairs(n):\n    for i in range(n):\n        for j in range(n):\n            print(i, j)\n
+Demo_CppLog|2026-11-14 01:55:20|O(log n)|2|1|None|#include <iostream>\n\nint binaryLikeSteps(int n) {\n    int count = 0;\n    int i = 1;\n    while (i < n) {\n        i *= 2;\n        count++;\n    }\n    return count;\n}\n
+Demo_Fibonacci|2026-11-14 01:55:20|O(2^n)|8|0|Multiple-branch (Exponential)|int fib(int n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}\n
+Demo_Indirect|2026-11-14 01:55:20|O(n)|3|0|Indirect (Linear)|function funcA(n)\n    if n > 0\n        funcB(n - 1)\n    end\nend\n\nfunction funcB(n)\n    if n > 0\n        funcA(n - 1)\n    end\nend\n
+: Onelineforloop|2026-11-14 01:56:18|O(1)|1|1|None|for(int i =0;i<5;i++)\n	printf("%d",i);\n
+for(int i =0;i<5;i++)|2026-11-14 01:57:40|O(1)|1|0|None|        printf("%d",i);\n
+for(int i = 0; i < n; i++)|2026-11-14 01:57:44|O(1)|1|0|None|    printf("%d", i);\n
+for(int i = 0; i < 5; i++) {|2026-11-14 01:58:04|O(1)|1|0|None|    printf("%d", i);\n}\n
+void test(int n) {|2026-11-14 01:58:15|O(n)|3|1|None|    for (int i = 0; i < n; i++) {\n        int x = i;\n    }\n}\n
+void test() {|2026-11-14 01:58:20|O(1)|1|1|None|    for(int i = 0; i < 5; i++) {\n        printf("%d", i);\n    }\n}\n
+for i in range(n):|2026-11-14 02:01:21|O(1)|1|0|None|    print(i)\n
+def test(n):|2026-11-14 02:01:31|O(n)|3|1|None|    for i in range(n):\n        print(i)\n
+for i in range(n):|2026-11-14 02:01:35|O(1)|1|0|None|    print(i)\n
+TestPythonPure|2026-11-14 02:01:50|O(n)|3|1|None|for i in range(n):\n    print(i)\n
+TestCppNoBrackets|2026-11-14 02:01:54|O(n)|3|1|None|for (int i = 0; i < n; i++)\n    printf("%d", i);\n
+new|2026-11-14 02:02:29|O(1)|1|0|None|void test(int n) {\n    for (int i = 0; i < n; i++) \n        printf("%d", i);\n}\n
+TestInvestigation|2026-11-14 02:02:54|O(1)|1|0|None|void test(int n) {\n    for (int i = 0; i < n; i++)\n        printf("%d", i);\n}\n
+TestSameLine|2026-11-14 02:03:07|O(n)|3|1|None|void test(int n) {\n    for (int i = 0; i < n; i++) printf("%d", i);\n}\n
+new2|2026-11-14 02:05:17|O(n)|3|1|None|for (int i = 0; i < n; i++)\n    printf("%d", i);\n
+WebDemoTest|2026-11-15 16:47:18|O(log n)|2|1|None|void test(int n) {\n  for(int i=0; i<n; i++) {\n    cout << i;\n  }\n}
+frontendinput|2026-11-16 02:29:58|O(log n)|2|1|None|int main() {\n    int n;\n    cin >> n;\n\n    int i = 1;\n\n    while (i < n) {\n        cout << i << " ";\n        i = i * 2;\n    }\n\n    return 0;\n}
+pythondemoo|2026-11-16 08:20:09|O(n^2)|5|2|None|for(int i=0;i<n;i++)\n for(int j=0;j<n;j++)\n    print("hello")
+UntitledProject|2026-11-16 09:41:50|O(1)|1|0|None|for(int i
+UntitledProject|2026-11-16 09:42:10|O(1)|1|0|None|for(int i =0;i<n;i++)
+UntitledProject|2026-11-16 09:43:01|O(n)|3|1|None|for(int i =0;i<n;i++)\n   printf("%d",i);
+UntitledProject|2026-11-16 09:43:02|O(n)|3|1|None|for(int i =0;i<n;i++)\n   printf("%d",i);
+UntitledProject|2026-11-16 09:43:22|O(n)|3|1|None|for(int i =0;i<n;)\n   printf("%d",i);
+UntitledProject|2026-11-16 09:47:30|O(1)|1|0|None|for(int i in range n)
+UntitledProject|2026-11-16 09:47:41|O(n)|3|1|None|for(int i in range n)\n     print(i)
+UntitledProject|2026-11-16 09:48:25|O(1)|1|1|None|for(int i =0;i<10;i++)\n    printf("%d",i)
+UntitledProject|2026-11-16 09:49:15|O(n^2)|5|2|None|for(int i =0;i<n;i++)\n   for(int j=0;j<n;j++)\n        printf("%d",i)
+UntitledProject|2026-11-16 09:50:37|O(1)|1|0|None|#include <iostream>\nusing namespace std;\n\nint factorial(int n)\n{\n    if (n == 0 \p\p n == 1)\n    {\n        return 1;\n    }\n\n    return n * factorial(n - 1);\n}\n\nint main()\n{\n    int n;\n    cout << "Enter a number: ";\n    cin >> n;\n\n    cout << "Factorial = " << factorial(n);\n\n    return 0;\n}
+UntitledProject|2026-11-16 09:50:57|O(1)|1|0|None|#include <iostream>\nusing namespace std;\n\nint factorial(int n)\n{\n    if (n == 0 \p\p n == 1)\n    {\n        return 1;\n    }\n\n    return n * factorial(n - 1);\n}
+UntitledProject|2026-11-16 09:51:05|O(1)|1|0|None|int factorial(int n)\n{\n    if (n == 0 \p\p n == 1)\n    {\n        return 1;\n    }\n\n    return n * factorial(n - 1);\n}
+Demo_Indirect|2026-11-16 09:51:26|O(n)|3|0|Indirect (Linear)|function funcA(n)\n    if n > 0\n        funcB(n - 1)\n    end\nend\n\nfunction funcB(n)\n    if n > 0\n        funcA(n - 1)\n    end\nend\n
+Demo_Fibonacci|2026-11-16 09:51:32|O(2^n)|8|0|Multiple-branch (Exponential)|int fib(int n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}\n
+UntitledProject|2026-11-16 09:51:43|O(2^n)|8|0|Multiple-branch (Exponential)|int fib(int n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}
+UntitledProject|2026-11-16 09:53:10|O(1)|1|0|None|for (int i = 1; i < n; i = i * 2)\n    {\n        cout << i << " ";\n    }
+UntitledProject|2026-11-16 09:53:21|O(log n)|2|1|None|for (int i = 1; i < n; i = i * 2)\n       cout << i << " ";
+UntitledProject|2026-11-16 09:57:38|O(log n)|2|2|None|for (int i=0;i<n;i++)\n    for(j=1;j<n;j=2*j)\n        print(i)
+UntitledProject|2026-11-16 09:58:56|O(log n)|2|2|None|for (int i=0;i<n;i++)\n    for(j=1;j<n;j=4*j)\n        print(i)
+UntitledProject|2026-11-16 09:59:38|O(2^n)|8|0|Multiple-branch (Exponential)|int fib(int n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}
+UntitledProject|2026-11-16 10:00:18|O(1)|1|0|None|if n=1 return m
+UntitledProject|2026-11-16 10:01:38|O(1)|1|0|None|def func(m,n){\nif (n=1) \n    return m\nelse \n    return func(m,n-1)\n}
+UntitledProject|2026-11-16 10:02:18|O(1)|1|0|None|def func(m,n)\n    if (n=1) \n        return m\n    else \n        return func(m,n-1)
+UntitledProject|2026-11-16 10:02:43|O(1)|1|0|None|function func(m,n)\n    if (n=1) \n        return m\n    else \n        return func(m,n-1)
+UntitledProject|2026-11-16 10:02:54|O(1)|1|0|None|def func(m,n)\n    if (n=1) \n        return m\n    else \n        return func(m,n-1)
+UntitledProject|2026-11-16 10:03:31|O(1)|1|0|None|int func(m,n){\nif (n=1) \n      return m\n    else \n        return func(m,n-1)}
+UntitledProject|2026-11-16 10:03:47|O(1)|1|0|None|int func(int m,int n){\nif (n=1) \n      return m\n    else \n        return func(m,n-1)}
